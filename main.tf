@@ -148,7 +148,7 @@ resource "aws_s3_bucket" "origin" {
 }
 
 module "logs" { # TEMPORARY - WAITING ON https://github.com/cloudposse/terraform-aws-s3-log-storage/pull/34 & https://github.com/cloudposse/terraform-aws-s3-log-storage/pull/32
-  source                   = "git::https://github.com/Makeshift/terraform-aws-s3-log-storage.git?ref=tags/version-pin"
+  source                   = "git::https://github.com/Makeshift/terraform-aws-s3-log-storage.git?ref=version-pin"
   enabled                  = var.logging_enabled
   namespace                = var.namespace
   environment              = var.environment

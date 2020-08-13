@@ -26,7 +26,7 @@ locals {
 }
 
 module "origin_label" {
-  source      = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.16.0"
+  source      = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.17.0"
   namespace   = var.namespace
   environment = var.environment
   stage       = var.stage
@@ -147,8 +147,8 @@ resource "aws_s3_bucket" "origin" {
   }
 }
 
-module "logs" {
-  source                   = "git::https://github.com/cloudposse/terraform-aws-s3-log-storage.git?ref=tags/0.12.0"
+module "logs" { # TEMPORARY - WAITING ON https://github.com/cloudposse/terraform-aws-s3-log-storage/pull/34 & https://github.com/cloudposse/terraform-aws-s3-log-storage/pull/32
+  source                   = "git::https://github.com/Makeshift/terraform-aws-s3-log-storage.git?ref=tags/version-pin"
   enabled                  = var.logging_enabled
   namespace                = var.namespace
   environment              = var.environment
@@ -165,7 +165,7 @@ module "logs" {
 }
 
 module "distribution_label" {
-  source      = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.16.0"
+  source      = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.17.0"
   namespace   = var.namespace
   environment = var.environment
   stage       = var.stage
